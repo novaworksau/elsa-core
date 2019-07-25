@@ -17,13 +17,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution", "solution", "{71
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Elsa.Abstractions", "src\core\Elsa.Abstractions\Elsa.Abstractions.csproj", "{3130C574-557C-4DA2-933E-AED7A9EBE48A}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{35F44BE9-13D0-417C-A01A-F0787BEE6DC3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "core", "core", "{35F44BE9-13D0-417C-A01A-F0787BEE6DC3}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elsa.Activities.Console", "src\activities\Elsa.Activities.Console\Elsa.Activities.Console.csproj", "{B98B80CB-D3A3-437C-A61C-ED82C8C77B2F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elsa.Activities.Http", "src\activities\Elsa.Activities.Http\Elsa.Activities.Http.csproj", "{1D63E1B4-2386-4BEC-9090-C3F3CBF25703}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Activities", "Activities", "{B43B546E-23F3-46E8-ACB7-D04F05CDA180}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "activities", "activities", "{B43B546E-23F3-46E8-ACB7-D04F05CDA180}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elsa.Activities.Email", "src\activities\Elsa.Activities.Email\Elsa.Activities.Email.csproj", "{D20FCB88-9DCA-49EA-9CC2-5B94DD935D30}"
 EndProject
@@ -51,7 +51,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample08", "samples\Sample0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample09", "samples\Sample09\Sample09.csproj", "{E8622C16-D80B-46A7-99D4-B939B20FBFD6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistence", "Persistence", "{600C4AE0-0585-4181-9CEC-2BB43430C713}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "persistence", "persistence", "{600C4AE0-0585-4181-9CEC-2BB43430C713}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elsa.Persistence.YesSql", "src\persistence\Elsa.Persistence.YesSql\Elsa.Persistence.YesSql.csproj", "{905C1067-2119-443D-B5FE-DA8E027FAD62}"
 EndProject
