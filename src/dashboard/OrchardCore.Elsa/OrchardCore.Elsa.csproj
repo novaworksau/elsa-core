@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\..\core\Elsa.Abstractions\Elsa.Abstractions.csproj" />
+        <ProjectReference Include="..\..\persistence\Elsa.Persistence.YesSql\Elsa.Persistence.YesSql.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Localization" Version="2.2.0" />
+        <PackageReference Include="OrchardCore.Admin.Abstractions" Version="1.0.0-beta3-72381" />
+        <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-beta3-72381" />
+        <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-beta3-72381" />
+        <PackageReference Include="OrchardCore.Navigation.Core" Version="1.0.0-beta3-72381" />
+        <PackageReference Include="YesSql.Abstractions" Version="2.0.0-beta-1393" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="wwwroot\styles\workflow-editor.css" />
+    </ItemGroup>
+
+</Project>

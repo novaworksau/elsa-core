@@ -17,22 +17,23 @@ namespace Elsa.Persistence.YesSql.Extensions
         {
             return services
                 .AddSingleton(sp => StoreFactory.CreateStore(sp, configure))
-                .AddSingleton<IIndexProvider, WorkflowDefinitionIndexProvider>()
-                .AddSingleton<IIndexProvider, WorkflowInstanceIndexProvider>()
                 .AddScoped(CreateSession)
-                .AddAutoMapperProfile<DocumentProfile>(ServiceLifetime.Singleton)
                 .AddStartupTask<StoreInitializationTask>();
         }
 
         public static IServiceCollection AddYesSqlWorkflowInstanceStore(this IServiceCollection services)
         {
             return services
+                .AddSingleton<IIndexProvider, WorkflowInstanceIndexProvider>()
+                .AddAutoMapperProfile<DocumentProfile>(ServiceLifetime.Singleton)
                 .AddScoped<IWorkflowInstanceStore, YesSqlWorkflowInstanceStore>();
         }
 
         public static IServiceCollection AddYesSqlWorkflowDefinitionStore(this IServiceCollection services)
         {
             return services
+                .AddSingleton<IIndexProvider, WorkflowDefinitionIndexProvider>()
+                .AddAutoMapperProfile<DocumentProfile>(ServiceLifetime.Singleton)
                 .AddScoped<IWorkflowDefinitionStore, YesSqlWorkflowDefinitionStore>();
         }
 

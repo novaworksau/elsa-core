@@ -42,5 +42,6 @@ namespace Elsa.Models
         public bool IsSingleton { get; set; }
         public bool IsPublished { get; set; }
         public bool IsLatest { get; set; }
+        public bool IsDisabled { get; set; }
     }
 }

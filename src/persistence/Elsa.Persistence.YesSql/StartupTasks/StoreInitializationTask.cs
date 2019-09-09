@@ -1,5 +1,6 @@
 using System.Threading;
 using System.Threading.Tasks;
+using Elsa.Persistence.YesSql.Extensions;
 using Elsa.Persistence.YesSql.Indexes;
 using Elsa.Runtime;
 using YesSql;
@@ -30,29 +31,7 @@ namespace Elsa.Persistence.YesSql.StartupTasks
 
                 using (var transaction = connection.BeginTransaction(store.Configuration.IsolationLevel))
                 {
-                    new SchemaBuilder(store.Configuration, transaction, false)
-                        .CreateMapIndexTable(nameof(WorkflowDefinitionIndex), table => table
-                            .Column<string>("WorkflowDefinitionId")
-                            .Column<int>("Version")
-                            .Column<bool>("IsPublished")
-                            .Column<bool>("IsLatest")
-                        )
-                        .CreateMapIndexTable(nameof(WorkflowDefinitionStartActivitiesIndex), table => table
-                            .Column<string>("StartActivityId")
-                            .Column<string>("StartActivityType")
-                        )
-                        .CreateMapIndexTable(nameof(WorkflowInstanceIndex), table => table
-                            .Column<string>("WorkflowInstanceId")
-                            .Column<string>("WorkflowDefinitionId")
-                            .Column<string>("CorrelationId")
-                            .Column<string>("WorkflowStatus")
-                        )
-                        .CreateMapIndexTable(nameof(WorkflowInstanceBlockingActivitiesIndex), table => table
-                            .Column<string>("ActivityId")
-                            .Column<string>("ActivityType")
-                            .Column<string>("CorrelationId")
-                        );
-
+                    new SchemaBuilder(store.Configuration, transaction, false).Setup();
                     transaction.Commit();
                 }
             }

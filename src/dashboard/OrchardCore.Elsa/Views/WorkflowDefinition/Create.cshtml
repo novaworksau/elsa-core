@@ -1,0 +1,63 @@
+@model WorkflowDefinitionViewModel
+
+<h1>@RenderTitleSegments(T["Create Workflow"])</h1>
+
+<nav class="admin-toolbar">
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <button class="btn btn-primary btn-sm" onclick="addActivity()">Add Activity</button>
+            <button class="btn btn-secondary btn-sm" onclick="importWorkflow()">Import</button>
+            <button class="btn btn-secondary btn-sm" onclick="exportWorkflow()">Export</button>
+            <button class="btn btn-secondary btn-sm" onclick="createNewWorkflow()">New Workflow</button>
+        </li>
+    </ul>
+</nav>
+
+<form asp-action="Create">
+    <input type="hidden" asp-for="Json" id="workflowJsonField"/>
+    <fieldset class="form-group">
+        <div class="card">
+            <div class="card-body">
+                <wf-designer-host id="designerHost" canvas-height="300vh"></wf-designer-host>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset class="form-group">
+        <div class="edit-item-actions form-group">
+            <button name="buttonAction" type="submit" class="btn btn-success" value="submit.Publish">Publish</button>
+            <button name="buttonAction" type="submit" class="btn btn-primary" value="submit.Save">Save Draft</button>
+        </div>
+    </fieldset>
+</form>
+
+<script type="text/javascript">
+  const designer = document.querySelector("#designerHost");
+  const workflowJsonField = document.querySelector("#workflowJsonField");
+  
+  designer.addEventListener('workflowChanged', onWorkflowChanged);
+  
+  function addActivity() {
+    designer.showActivityPicker();
+  }
+  function createNewWorkflow() {
+    if (confirm('Are you sure you want to discard current changes?'))
+      designer.newWorkflow();
+  }
+  function importWorkflow() {
+    designer.import();
+  }
+  function exportWorkflow() {
+      designer.export({
+        format: 'json',
+        fileExtension: '.json',
+        mimeType: 'application/json',
+        displayName: 'JSON'});
+    }
+    
+    function onWorkflowChanged(e){
+      workflowJsonField.value = JSON.stringify(e.detail);
+    }
+</script>
+
+<style asp-src="~/OrchardCore.Elsa/styles/workflow-editor.css"></style>
+<script asp-src="https://unpkg.com/@@elsa-workflows/elsa-workflow-designer@0.0.37/dist/elsa-workflow-designer.js" at="Head"></script>
